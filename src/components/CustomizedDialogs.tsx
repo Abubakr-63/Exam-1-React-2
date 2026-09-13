@@ -5,7 +5,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import { X } from 'lucide-react';
-import { useState } from 'react';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -16,11 +15,8 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export default function CustomizedDialogs({boolean,setBoolean, text, children}) {
-    const [open, setOpen] = useState(boolean)
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+
+export default function CustomizedDialogs({boolean, setBoolean, text, children}: any) {
   const handleClose = () => {
     setBoolean(false)
   };
