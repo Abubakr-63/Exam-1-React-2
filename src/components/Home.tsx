@@ -80,18 +80,19 @@ export default function Home() {
     editData(object1 as User1)
   }
 
-  function handleSearch(e:SelectChangeEvent){
+  function handleSearch(e: SelectChangeEvent){
     setSelect(e.target.value);
-    searchData(search)
+    searchData(search, e.target.value as 'all' | 'active' | 'inactive')
   }
   return (
     <>
     <div className="container mx-auto flex items-center justify-between">
       <h1 className="text-3xl font-bold">Crud</h1>
       <div className="flex items-center gap-10 mt-10">
-        <TextField type="search"  value={search} onChange={(e) => {
-          setSearch(e.target.value);
-        }} variant="standard" label="Search..."/>
+        <TextField type="search" value={search} onChange={(e) => {
+  setSearch(e.target.value);
+  searchData(e.target.value, select as 'all' | 'active' | 'inactive');
+}} variant="standard" label="Search..."/>
         <Select sx={{height: 35}} value={select} onChange={handleSearch}>
           <MenuItem value='all'>All Status</MenuItem>
           <MenuItem value='active'>Active</MenuItem>
